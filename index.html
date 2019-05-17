@@ -7,6 +7,7 @@
   <title>A Guide to React</title>
   <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js" crossorigin></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
@@ -17,18 +18,38 @@
   // element.textContent = 'Hellow World';
   // element.className = 'container';
   // rootElement.appendChild(element);
+
   // const element = React.createElement('div', {
   //   className: 'container',
   //   children: ['Hello World', 'Goodbye World']
   // });
-  const content = 'Hello World';
-  const myClassName = 'container';
-  const props = {
-    className: 'container',
-    children: 'Hello World'
-  }
-  const element = <div {...props} />
+
+  // const content = 'Hello World';
+  // const myClassName = 'container';
+  // const props = {
+  //   className: 'container',
+  //   children: 'Hello World'
+  // }
+  // const element = <div {...props} children="Hi there~" />
   // const element = <div className='container'>Hello World</div>;
+  
+  // const Message = (props) => <div>{props.children}</div>
+  function Message (props) {
+    return (
+      <div>
+        <h1>{props.children}</h1>
+      </div>
+    )
+  }
+  const element = (
+    <div className="container">
+      <Message children="Hello World" />
+      <Message>Goodbye World</Message>
+      {/* message({msg: 'Hello World'})}
+      {message({msg: 'Goodbye World'})*/}
+    </div>
+  )
+    
   ReactDOM.render(element, rootElement);
   </script>
 </body>
